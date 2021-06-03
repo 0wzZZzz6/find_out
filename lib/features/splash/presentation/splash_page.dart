@@ -1,6 +1,23 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-class SplashPage extends StatelessWidget {
+import '../../../core/router/app_router.gr.dart';
+import '../../../core/widgets/logo.dart';
+
+class SplashPage extends StatefulWidget {
+  @override
+  _SplashPageState createState() => _SplashPageState();
+}
+
+class _SplashPageState extends State<SplashPage> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(seconds: 1)).then((value) {
+      context.router.replace(WelcomeRoute());
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -9,7 +26,6 @@ class SplashPage extends StatelessWidget {
           alignment: AlignmentDirectional.bottomCenter,
           children: [
             Container(
-              // height: 500,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(
@@ -21,16 +37,7 @@ class SplashPage extends StatelessWidget {
             Positioned(
               bottom: 50,
               left: 125,
-              child: Container(
-                height: 120,
-                width: 180,
-                decoration: BoxDecoration(
-                  // color: Colors.red,
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/find_out.png'),
-                  ),
-                ),
-              ),
+              child: Logo(),
             ),
           ],
         ),

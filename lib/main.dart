@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:injectable/injectable.dart';
 
 import 'core/router/app_router.gr.dart';
+import 'injection.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  configureInjection(Environment.prod);
   runApp(MyApp());
 }
 
